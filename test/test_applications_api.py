@@ -30,6 +30,13 @@ class TestApplicationsApi(unittest.TestCase):
         """
         pass
 
+    def test_create_contribution_type(self):
+        """Test case for create_contribution_type
+
+        Create a new contribution type  # noqa: E501
+        """
+        pass
+
     def test_get_application_by_id(self):
         """Test case for get_application_by_id
 
@@ -41,6 +48,27 @@ class TestApplicationsApi(unittest.TestCase):
         """Test case for get_applications
 
         Get applications  # noqa: E501
+        """
+        pass
+
+    def test_get_contribution_type_by_name(self):
+        """Test case for get_contribution_type_by_name
+
+        Get contribution type by name  # noqa: E501
+        """
+        pass
+
+    def test_get_contribution_types(self):
+        """Test case for get_contribution_types
+
+        Get contributionTypes  # noqa: E501
+        """
+        pass
+
+    def test_update_contribution_type_by_name(self):
+        """Test case for update_contribution_type_by_name
+
+        Update contribution type by name  # noqa: E501
         """
         pass
 
