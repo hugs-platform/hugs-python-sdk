@@ -17,7 +17,6 @@ Enable CORS by returning correct headers
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import cors_api
@@ -28,16 +27,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -98,7 +87,7 @@ str,  | str,  |  |
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
