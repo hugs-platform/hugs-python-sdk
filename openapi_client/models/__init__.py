@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # flake8: noqa
 
 # import all models into this package
@@ -16,10 +18,6 @@ from openapi_client.model.contribution_response import ContributionResponse
 from openapi_client.model.contribution_state import ContributionState
 from openapi_client.model.contribution_type_request import ContributionTypeRequest
 from openapi_client.model.contribution_type_response import ContributionTypeResponse
-from openapi_client.model.create_application201_response import CreateApplication201Response
-from openapi_client.model.create_contribution_type201_response import CreateContributionType201Response
-from openapi_client.model.create_resolution201_response import CreateResolution201Response
-from openapi_client.model.create_review201_response import CreateReview201Response
 from openapi_client.model.resolution_request import ResolutionRequest
 from openapi_client.model.review_config import ReviewConfig
 from openapi_client.model.review_policy import ReviewPolicy
