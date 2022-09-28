@@ -52,17 +52,49 @@ request_path_contribution_id = api_client.PathParameter(
     schema=ContributionIdSchema,
     required=True,
 )
+AccessControlAllowOriginSchema = schemas.StrSchema
+access_control_allow_origin_parameter = api_client.HeaderParameter(
+    name="Access-Control-Allow-Origin",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=AccessControlAllowOriginSchema,
+)
+AccessControlAllowMethodsSchema = schemas.StrSchema
+access_control_allow_methods_parameter = api_client.HeaderParameter(
+    name="Access-Control-Allow-Methods",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=AccessControlAllowMethodsSchema,
+)
+AccessControlAllowHeadersSchema = schemas.StrSchema
+access_control_allow_headers_parameter = api_client.HeaderParameter(
+    name="Access-Control-Allow-Headers",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=AccessControlAllowHeadersSchema,
+)
+ResponseHeadersFor200 = typing_extensions.TypedDict(
+    'ResponseHeadersFor200',
+    {
+        'Access-Control-Allow-Origin': AccessControlAllowOriginSchema,
+        'Access-Control-Allow-Methods': AccessControlAllowMethodsSchema,
+        'Access-Control-Allow-Headers': AccessControlAllowHeadersSchema,
+    }
+)
 
 
 @dataclass
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: schemas.Unset = schemas.unset
-    headers: schemas.Unset = schemas.unset
+    body: typing.Union[
+    ]
+    headers: ResponseHeadersFor200
 
 
 _response_for_200 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor200,
+    headers=[
+        access_control_allow_origin_parameter,
+        access_control_allow_methods_parameter,
+        access_control_allow_headers_parameter,
+    ]
 )
 _status_code_to_response = {
     '200': _response_for_200,

@@ -24,6 +24,9 @@ import frozendict  # noqa: F401
 
 from openapi_client import schemas  # noqa: F401
 
+AccessControlAllowOriginSchema = schemas.StrSchema
+AccessControlAllowMethodsSchema = schemas.StrSchema
+AccessControlAllowHeadersSchema = schemas.StrSchema
 
 
 class BaseApi(api_client.Api):

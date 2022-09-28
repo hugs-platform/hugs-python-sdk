@@ -88,14 +88,43 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#applications_application_id_contribution_types_name_options.ApiResponseFor200) | Default response for cors method
+200 | [ApiResponseFor200](#applications_application_id_contribution_types_name_options.ApiResponseFor200) | Default response for CORS method
 
 #### applications_application_id_contribution_types_name_options.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+body | typing.Union[] |  |
+headers | ResponseHeadersFor200 |  |
+#### ResponseHeadersFor200
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+Access-Control-Allow-Origin | AccessControlAllowOriginSchema | | optional
+Access-Control-Allow-Methods | AccessControlAllowMethodsSchema | | optional
+Access-Control-Allow-Headers | AccessControlAllowHeadersSchema | | optional
+
+# AccessControlAllowOriginSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowMethodsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowHeadersSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
 
 ### Authorization
 
@@ -168,14 +197,43 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#applications_application_id_contribution_types_options.ApiResponseFor200) | Default response for cors method
+200 | [ApiResponseFor200](#applications_application_id_contribution_types_options.ApiResponseFor200) | Default response for CORS method
 
 #### applications_application_id_contribution_types_options.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+body | typing.Union[] |  |
+headers | ResponseHeadersFor200 |  |
+#### ResponseHeadersFor200
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+Access-Control-Allow-Origin | AccessControlAllowOriginSchema | | optional
+Access-Control-Allow-Methods | AccessControlAllowMethodsSchema | | optional
+Access-Control-Allow-Headers | AccessControlAllowHeadersSchema | | optional
+
+# AccessControlAllowOriginSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowMethodsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowHeadersSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
 
 ### Authorization
 
@@ -248,14 +306,43 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#applications_application_id_options.ApiResponseFor200) | Default response for cors method
+200 | [ApiResponseFor200](#applications_application_id_options.ApiResponseFor200) | Default response for CORS method
 
 #### applications_application_id_options.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+body | typing.Union[] |  |
+headers | ResponseHeadersFor200 |  |
+#### ResponseHeadersFor200
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+Access-Control-Allow-Origin | AccessControlAllowOriginSchema | | optional
+Access-Control-Allow-Methods | AccessControlAllowMethodsSchema | | optional
+Access-Control-Allow-Headers | AccessControlAllowHeadersSchema | | optional
+
+# AccessControlAllowOriginSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowMethodsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowHeadersSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
 
 ### Authorization
 
@@ -303,14 +390,43 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#applications_options.ApiResponseFor200) | Default response for cors method
+200 | [ApiResponseFor200](#applications_options.ApiResponseFor200) | Default response for CORS method
 
 #### applications_options.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+body | typing.Union[] |  |
+headers | ResponseHeadersFor200 |  |
+#### ResponseHeadersFor200
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+Access-Control-Allow-Origin | AccessControlAllowOriginSchema | | optional
+Access-Control-Allow-Methods | AccessControlAllowMethodsSchema | | optional
+Access-Control-Allow-Headers | AccessControlAllowHeadersSchema | | optional
+
+# AccessControlAllowOriginSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowMethodsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowHeadersSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
 
 ### Authorization
 
@@ -383,14 +499,43 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#contributions_contribution_id_options.ApiResponseFor200) | Default response for cors method
+200 | [ApiResponseFor200](#contributions_contribution_id_options.ApiResponseFor200) | Default response for CORS method
 
 #### contributions_contribution_id_options.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+body | typing.Union[] |  |
+headers | ResponseHeadersFor200 |  |
+#### ResponseHeadersFor200
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+Access-Control-Allow-Origin | AccessControlAllowOriginSchema | | optional
+Access-Control-Allow-Methods | AccessControlAllowMethodsSchema | | optional
+Access-Control-Allow-Headers | AccessControlAllowHeadersSchema | | optional
+
+# AccessControlAllowOriginSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowMethodsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowHeadersSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
 
 ### Authorization
 
@@ -463,14 +608,43 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#contributions_contribution_id_resolutions_options.ApiResponseFor200) | Default response for cors method
+200 | [ApiResponseFor200](#contributions_contribution_id_resolutions_options.ApiResponseFor200) | Default response for CORS method
 
 #### contributions_contribution_id_resolutions_options.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+body | typing.Union[] |  |
+headers | ResponseHeadersFor200 |  |
+#### ResponseHeadersFor200
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+Access-Control-Allow-Origin | AccessControlAllowOriginSchema | | optional
+Access-Control-Allow-Methods | AccessControlAllowMethodsSchema | | optional
+Access-Control-Allow-Headers | AccessControlAllowHeadersSchema | | optional
+
+# AccessControlAllowOriginSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowMethodsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowHeadersSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
 
 ### Authorization
 
@@ -543,14 +717,43 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#contributions_contribution_id_reviews_options.ApiResponseFor200) | Default response for cors method
+200 | [ApiResponseFor200](#contributions_contribution_id_reviews_options.ApiResponseFor200) | Default response for CORS method
 
 #### contributions_contribution_id_reviews_options.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+body | typing.Union[] |  |
+headers | ResponseHeadersFor200 |  |
+#### ResponseHeadersFor200
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+Access-Control-Allow-Origin | AccessControlAllowOriginSchema | | optional
+Access-Control-Allow-Methods | AccessControlAllowMethodsSchema | | optional
+Access-Control-Allow-Headers | AccessControlAllowHeadersSchema | | optional
+
+# AccessControlAllowOriginSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowMethodsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowHeadersSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
 
 ### Authorization
 
@@ -598,14 +801,43 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#contributions_options.ApiResponseFor200) | Default response for cors method
+200 | [ApiResponseFor200](#contributions_options.ApiResponseFor200) | Default response for CORS method
 
 #### contributions_options.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
-headers | Unset | headers were not defined |
+body | typing.Union[] |  |
+headers | ResponseHeadersFor200 |  |
+#### ResponseHeadersFor200
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+Access-Control-Allow-Origin | AccessControlAllowOriginSchema | | optional
+Access-Control-Allow-Methods | AccessControlAllowMethodsSchema | | optional
+Access-Control-Allow-Headers | AccessControlAllowHeadersSchema | | optional
+
+# AccessControlAllowOriginSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowMethodsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowHeadersSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
 
 ### Authorization
 

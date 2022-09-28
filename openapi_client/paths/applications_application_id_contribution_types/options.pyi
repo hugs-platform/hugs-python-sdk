@@ -26,6 +26,9 @@ from openapi_client import schemas  # noqa: F401
 
 # path params
 ApplicationIdSchema = schemas.StrSchema
+AccessControlAllowOriginSchema = schemas.StrSchema
+AccessControlAllowMethodsSchema = schemas.StrSchema
+AccessControlAllowHeadersSchema = schemas.StrSchema
 
 
 class BaseApi(api_client.Api):
