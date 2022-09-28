@@ -12,15 +12,15 @@ from unittest.mock import patch
 import urllib3
 
 import openapi_client
-from openapi_client.paths.contributions import options  # noqa: E501
+from openapi_client.paths.contributions_contribution_id import options  # noqa: E501
 from openapi_client import configuration, schemas, api_client
 
 from .. import ApiTestMixin
 
 
-class TestContributions(ApiTestMixin, unittest.TestCase):
+class TestContributionsContributionId(ApiTestMixin, unittest.TestCase):
     """
-    Contributions unit test stubs
+    ContributionsContributionId unit test stubs
         cors support  # noqa: E501
     """
     _configuration = configuration.Configuration()

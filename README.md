@@ -140,24 +140,44 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import openapi_client
 from pprint import pprint
-from openapi_client.apis import cors_api
+from openapi_client.apis import applications_api
+from openapi_client.model.application_request import ApplicationRequest
+from openapi_client.model.application_response import ApplicationResponse
+from openapi_client.model.contribution_type_request import ContributionTypeRequest
+from openapi_client.model.contribution_type_response import ContributionTypeResponse
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: JWTAuth
+configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cors_api.CORSApi(api_client)
-    
+    api_instance = applications_api.ApplicationsApi(api_client)
+    application_request = ApplicationRequest(
+        name="name_example",
+        client_id="client_id_example",
+        url="url_example",
+    ) # ApplicationRequest |  (optional)
+
     try:
-        # CORS support
-        api_instance.contributions_options()
+        # Create a new application
+        api_response = api_instance.create_application(application_request=application_request)
+        pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling CORSApi->contributions_options: %s\n" % e)
+        print("Exception when calling ApplicationsApi->create_application: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -166,7 +186,6 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CORSApi* | [**contributions_options**](docs/apis/tags/CORSApi.md#contributions_options) | **options** /contributions | CORS support
 *ApplicationsApi* | [**create_application**](docs/apis/tags/ApplicationsApi.md#create_application) | **post** /applications | Create a new application
 *ApplicationsApi* | [**create_contribution_type**](docs/apis/tags/ApplicationsApi.md#create_contribution_type) | **post** /applications/{applicationId}/contributionTypes | Create a new contribution type
 *ApplicationsApi* | [**get_application_by_id**](docs/apis/tags/ApplicationsApi.md#get_application_by_id) | **get** /applications/{applicationId} | Get application by Id
@@ -179,6 +198,14 @@ Class | Method | HTTP request | Description
 *ContributionsApi* | [**create_resolution**](docs/apis/tags/ContributionsApi.md#create_resolution) | **post** /contributions/{contributionId}/resolutions | Resolve a contribution
 *ContributionsApi* | [**get_contributions**](docs/apis/tags/ContributionsApi.md#get_contributions) | **get** /contributions | Get contributions
 *ContributionsApi* | [**get_contributions_by_id**](docs/apis/tags/ContributionsApi.md#get_contributions_by_id) | **get** /contributions/{contributionId} | Get contribution by Id
+*CorsApi* | [**applications_application_id_contribution_types_name_options**](docs/apis/tags/CorsApi.md#applications_application_id_contribution_types_name_options) | **options** /applications/{applicationId}/contributionTypes/{name} | cors support
+*CorsApi* | [**applications_application_id_contribution_types_options**](docs/apis/tags/CorsApi.md#applications_application_id_contribution_types_options) | **options** /applications/{applicationId}/contributionTypes | cors support
+*CorsApi* | [**applications_application_id_options**](docs/apis/tags/CorsApi.md#applications_application_id_options) | **options** /applications/{applicationId} | cors support
+*CorsApi* | [**applications_options**](docs/apis/tags/CorsApi.md#applications_options) | **options** /applications | cors support
+*CorsApi* | [**contributions_contribution_id_options**](docs/apis/tags/CorsApi.md#contributions_contribution_id_options) | **options** /contributions/{contributionId} | cors support
+*CorsApi* | [**contributions_contribution_id_resolutions_options**](docs/apis/tags/CorsApi.md#contributions_contribution_id_resolutions_options) | **options** /contributions/{contributionId}/resolutions | cors support
+*CorsApi* | [**contributions_contribution_id_reviews_options**](docs/apis/tags/CorsApi.md#contributions_contribution_id_reviews_options) | **options** /contributions/{contributionId}/reviews | cors support
+*CorsApi* | [**contributions_options**](docs/apis/tags/CorsApi.md#contributions_options) | **options** /contributions | cors support
 *ReviewsApi* | [**contributions_health**](docs/apis/tags/ReviewsApi.md#contributions_health) | **get** /health | Checking the health of the contributions service
 *ReviewsApi* | [**create_review**](docs/apis/tags/ReviewsApi.md#create_review) | **post** /contributions/{contributionId}/reviews | Create a new review
 *ReviewsApi* | [**get_reviews_by_contribution**](docs/apis/tags/ReviewsApi.md#get_reviews_by_contribution) | **get** /contributions/{contributionId}/reviews | Get reviews for a contribution

@@ -6,7 +6,7 @@ import enum
 
 
 class TagValues(str, enum.Enum):
-    CONTRIBUTIONS = "contributions"
     APPLICATIONS = "applications"
-    CORS = "CORS"
+    CONTRIBUTIONS = "contributions"
     REVIEWS = "reviews"
+    CORS = "cors"

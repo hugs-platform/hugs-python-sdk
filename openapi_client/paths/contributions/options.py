@@ -26,49 +26,17 @@ from openapi_client import schemas  # noqa: F401
 
 from . import path
 
-AccessControlAllowOriginSchema = schemas.StrSchema
-access_control_allow_origin_parameter = api_client.HeaderParameter(
-    name="Access-Control-Allow-Origin",
-    style=api_client.ParameterStyle.SIMPLE,
-    schema=AccessControlAllowOriginSchema,
-)
-AccessControlAllowMethodsSchema = schemas.StrSchema
-access_control_allow_methods_parameter = api_client.HeaderParameter(
-    name="Access-Control-Allow-Methods",
-    style=api_client.ParameterStyle.SIMPLE,
-    schema=AccessControlAllowMethodsSchema,
-)
-AccessControlAllowHeadersSchema = schemas.StrSchema
-access_control_allow_headers_parameter = api_client.HeaderParameter(
-    name="Access-Control-Allow-Headers",
-    style=api_client.ParameterStyle.SIMPLE,
-    schema=AccessControlAllowHeadersSchema,
-)
-ResponseHeadersFor200 = typing_extensions.TypedDict(
-    'ResponseHeadersFor200',
-    {
-        'Access-Control-Allow-Origin': AccessControlAllowOriginSchema,
-        'Access-Control-Allow-Methods': AccessControlAllowMethodsSchema,
-        'Access-Control-Allow-Headers': AccessControlAllowHeadersSchema,
-    }
-)
 
 
 @dataclass
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: typing.Union[
-    ]
-    headers: ResponseHeadersFor200
+    body: schemas.Unset = schemas.unset
+    headers: schemas.Unset = schemas.unset
 
 
 _response_for_200 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor200,
-    headers=[
-        access_control_allow_origin_parameter,
-        access_control_allow_methods_parameter,
-        access_control_allow_headers_parameter,
-    ]
 )
 _status_code_to_response = {
     '200': _response_for_200,
@@ -87,7 +55,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization
     ]:
         """
-        CORS support
+        cors support
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances

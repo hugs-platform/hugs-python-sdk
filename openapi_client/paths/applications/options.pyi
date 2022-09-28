@@ -28,7 +28,7 @@ from openapi_client import schemas  # noqa: F401
 
 class BaseApi(api_client.Api):
 
-    def _contributions_options_oapg(
+    def _applications_options_oapg(
         self: api_client.Api,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -68,10 +68,10 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class ContributionsOptions(BaseApi):
+class ApplicationsOptions(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
-    def contributions_options(
+    def applications_options(
         self: BaseApi,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -80,7 +80,7 @@ class ContributionsOptions(BaseApi):
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization
     ]:
-        return self._contributions_options_oapg(
+        return self._applications_options_oapg(
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -99,7 +99,7 @@ class ApiForoptions(BaseApi):
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization
     ]:
-        return self._contributions_options_oapg(
+        return self._applications_options_oapg(
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

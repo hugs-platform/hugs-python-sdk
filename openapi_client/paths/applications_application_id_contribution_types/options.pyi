@@ -24,12 +24,15 @@ import frozendict  # noqa: F401
 
 from openapi_client import schemas  # noqa: F401
 
+# path params
+ApplicationIdSchema = schemas.StrSchema
 
 
 class BaseApi(api_client.Api):
 
-    def _contributions_options_oapg(
+    def _applications_application_id_contribution_types_options_oapg(
         self: api_client.Api,
+        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -43,7 +46,21 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
+        self._verify_typed_dict_inputs_oapg(RequestPathParams, path_params)
         used_path = path.value
+
+        _path_params = {}
+        for parameter in (
+            request_path_application_id,
+        ):
+            parameter_data = path_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            serialized_data = parameter.serialize(parameter_data)
+            _path_params.update(serialized_data)
+
+        for k, v in _path_params.items():
+            used_path = used_path.replace('{%s}' % k, v)
         # TODO add cookie handling
 
         response = self.api_client.call_api(
@@ -68,11 +85,12 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class ContributionsOptions(BaseApi):
+class ApplicationsApplicationIdContributionTypesOptions(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
-    def contributions_options(
+    def applications_application_id_contribution_types_options(
         self: BaseApi,
+        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -80,7 +98,8 @@ class ContributionsOptions(BaseApi):
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization
     ]:
-        return self._contributions_options_oapg(
+        return self._applications_application_id_contribution_types_options_oapg(
+            path_params=path_params,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -92,6 +111,7 @@ class ApiForoptions(BaseApi):
 
     def options(
         self: BaseApi,
+        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -99,7 +119,8 @@ class ApiForoptions(BaseApi):
         ApiResponseFor200,
         api_client.ApiResponseWithoutDeserialization
     ]:
-        return self._contributions_options_oapg(
+        return self._applications_application_id_contribution_types_options_oapg(
+            path_params=path_params,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
