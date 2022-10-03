@@ -12,6 +12,7 @@
 from openapi_client.paths.health.get import ContributionsHealth
 from openapi_client.paths.contributions.post import CreateContribution
 from openapi_client.paths.contributions_contribution_id_resolutions.post import CreateResolution
+from openapi_client.paths.contributions_find_by_reviewer_id.get import FindByReviewerId
 from openapi_client.paths.contributions.get import GetContributions
 from openapi_client.paths.contributions_contribution_id.get import GetContributionsById
 
@@ -20,6 +21,7 @@ class ContributionsApi(
     ContributionsHealth,
     CreateContribution,
     CreateResolution,
+    FindByReviewerId,
     GetContributions,
     GetContributionsById,
 ):

@@ -196,6 +196,7 @@ Class | Method | HTTP request | Description
 *ContributionsApi* | [**contributions_health**](docs/apis/tags/ContributionsApi.md#contributions_health) | **get** /health | Checking the health of the contributions service
 *ContributionsApi* | [**create_contribution**](docs/apis/tags/ContributionsApi.md#create_contribution) | **post** /contributions | Create a new contribution
 *ContributionsApi* | [**create_resolution**](docs/apis/tags/ContributionsApi.md#create_resolution) | **post** /contributions/{contributionId}/resolutions | Resolve a contribution
+*ContributionsApi* | [**find_by_reviewer_id**](docs/apis/tags/ContributionsApi.md#find_by_reviewer_id) | **get** /contributions/findByReviewerId | Get Contributions by ReviewerId
 *ContributionsApi* | [**get_contributions**](docs/apis/tags/ContributionsApi.md#get_contributions) | **get** /contributions | Get contributions
 *ContributionsApi* | [**get_contributions_by_id**](docs/apis/tags/ContributionsApi.md#get_contributions_by_id) | **get** /contributions/{contributionId} | Get contribution by Id
 *CorsApi* | [**applications_application_id_contribution_types_name_options**](docs/apis/tags/CorsApi.md#applications_application_id_contribution_types_name_options) | **options** /applications/{applicationId}/contributionTypes/{name} | cors support
@@ -205,6 +206,7 @@ Class | Method | HTTP request | Description
 *CorsApi* | [**contributions_contribution_id_options**](docs/apis/tags/CorsApi.md#contributions_contribution_id_options) | **options** /contributions/{contributionId} | cors support
 *CorsApi* | [**contributions_contribution_id_resolutions_options**](docs/apis/tags/CorsApi.md#contributions_contribution_id_resolutions_options) | **options** /contributions/{contributionId}/resolutions | cors support
 *CorsApi* | [**contributions_contribution_id_reviews_options**](docs/apis/tags/CorsApi.md#contributions_contribution_id_reviews_options) | **options** /contributions/{contributionId}/reviews | cors support
+*CorsApi* | [**contributions_find_by_reviewer_id_options**](docs/apis/tags/CorsApi.md#contributions_find_by_reviewer_id_options) | **options** /contributions/findByReviewerId | cors support
 *CorsApi* | [**contributions_options**](docs/apis/tags/CorsApi.md#contributions_options) | **options** /contributions | cors support
 *ReviewsApi* | [**contributions_health**](docs/apis/tags/ReviewsApi.md#contributions_health) | **get** /health | Checking the health of the contributions service
 *ReviewsApi* | [**create_review**](docs/apis/tags/ReviewsApi.md#create_review) | **post** /contributions/{contributionId}/reviews | Create a new review

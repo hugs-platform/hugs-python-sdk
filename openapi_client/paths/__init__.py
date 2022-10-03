@@ -12,6 +12,7 @@ class PathValues(str, enum.Enum):
     APPLICATIONS_APPLICATION_ID_CONTRIBUTION_TYPES = "/applications/{applicationId}/contributionTypes"
     APPLICATIONS_APPLICATION_ID_CONTRIBUTION_TYPES_NAME = "/applications/{applicationId}/contributionTypes/{name}"
     CONTRIBUTIONS = "/contributions"
+    CONTRIBUTIONS_FIND_BY_REVIEWER_ID = "/contributions/findByReviewerId"
     CONTRIBUTIONS_CONTRIBUTION_ID = "/contributions/{contributionId}"
     CONTRIBUTIONS_CONTRIBUTION_ID_REVIEWS = "/contributions/{contributionId}/reviews"
     CONTRIBUTIONS_CONTRIBUTION_ID_RESOLUTIONS = "/contributions/{contributionId}/resolutions"
