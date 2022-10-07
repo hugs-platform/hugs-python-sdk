@@ -31,8 +31,70 @@ from openapi_client.model.review_response import ReviewResponse
 ReviewerIdSchema = schemas.StrSchema
 StartSchema = schemas.IntSchema
 LengthSchema = schemas.IntSchema
+RequestRequiredQueryParams = typing_extensions.TypedDict(
+    'RequestRequiredQueryParams',
+    {
+    }
+)
+RequestOptionalQueryParams = typing_extensions.TypedDict(
+    'RequestOptionalQueryParams',
+    {
+        'reviewerId': typing.Union[ReviewerIdSchema, str, ],
+        'start': typing.Union[StartSchema, decimal.Decimal, int, ],
+        'length': typing.Union[LengthSchema, decimal.Decimal, int, ],
+    },
+    total=False
+)
+
+
+class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams):
+    pass
+
+
+request_query_reviewer_id = api_client.QueryParameter(
+    name="reviewerId",
+    style=api_client.ParameterStyle.FORM,
+    schema=ReviewerIdSchema,
+    explode=True,
+)
+request_query_start = api_client.QueryParameter(
+    name="start",
+    style=api_client.ParameterStyle.FORM,
+    schema=StartSchema,
+    explode=True,
+)
+request_query_length = api_client.QueryParameter(
+    name="length",
+    style=api_client.ParameterStyle.FORM,
+    schema=LengthSchema,
+    explode=True,
+)
 # path params
 ContributionIdSchema = schemas.StrSchema
+RequestRequiredPathParams = typing_extensions.TypedDict(
+    'RequestRequiredPathParams',
+    {
+        'contributionId': typing.Union[ContributionIdSchema, str, ],
+    }
+)
+RequestOptionalPathParams = typing_extensions.TypedDict(
+    'RequestOptionalPathParams',
+    {
+    },
+    total=False
+)
+
+
+class RequestPathParams(RequestRequiredPathParams, RequestOptionalPathParams):
+    pass
+
+
+request_path_contribution_id = api_client.PathParameter(
+    name="contributionId",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=ContributionIdSchema,
+    required=True,
+)
 
 
 class SchemaFor200ResponseBodyApplicationJson(
@@ -59,6 +121,24 @@ class SchemaFor200ResponseBodyApplicationJson(
 
     def __getitem__(self, i: int) -> 'ReviewResponse':
         return super().__getitem__(i)
+
+
+@dataclass
+class ApiResponseFor200(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor200ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_200 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor200,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationJson),
+    },
+)
 _all_accept_content_types = (
     'application/json',
 )

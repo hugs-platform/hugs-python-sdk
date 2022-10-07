@@ -31,6 +31,44 @@ from openapi_client.model.contribution_response import ContributionResponse
 ReviewerIdSchema = schemas.StrSchema
 StartSchema = schemas.IntSchema
 LengthSchema = schemas.IntSchema
+RequestRequiredQueryParams = typing_extensions.TypedDict(
+    'RequestRequiredQueryParams',
+    {
+    }
+)
+RequestOptionalQueryParams = typing_extensions.TypedDict(
+    'RequestOptionalQueryParams',
+    {
+        'reviewerId': typing.Union[ReviewerIdSchema, str, ],
+        'start': typing.Union[StartSchema, decimal.Decimal, int, ],
+        'length': typing.Union[LengthSchema, decimal.Decimal, int, ],
+    },
+    total=False
+)
+
+
+class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams):
+    pass
+
+
+request_query_reviewer_id = api_client.QueryParameter(
+    name="reviewerId",
+    style=api_client.ParameterStyle.FORM,
+    schema=ReviewerIdSchema,
+    explode=True,
+)
+request_query_start = api_client.QueryParameter(
+    name="start",
+    style=api_client.ParameterStyle.FORM,
+    schema=StartSchema,
+    explode=True,
+)
+request_query_length = api_client.QueryParameter(
+    name="length",
+    style=api_client.ParameterStyle.FORM,
+    schema=LengthSchema,
+    explode=True,
+)
 
 
 class SchemaFor200ResponseBodyApplicationJson(
@@ -57,6 +95,24 @@ class SchemaFor200ResponseBodyApplicationJson(
 
     def __getitem__(self, i: int) -> 'ContributionResponse':
         return super().__getitem__(i)
+
+
+@dataclass
+class ApiResponseFor200(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor200ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_200 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor200,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationJson),
+    },
+)
 _all_accept_content_types = (
     'application/json',
 )

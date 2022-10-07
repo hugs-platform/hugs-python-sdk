@@ -29,7 +29,49 @@ from openapi_client.model.application_response import ApplicationResponse
 
 # path params
 ApplicationIdSchema = schemas.StrSchema
+RequestRequiredPathParams = typing_extensions.TypedDict(
+    'RequestRequiredPathParams',
+    {
+        'applicationId': typing.Union[ApplicationIdSchema, str, ],
+    }
+)
+RequestOptionalPathParams = typing_extensions.TypedDict(
+    'RequestOptionalPathParams',
+    {
+    },
+    total=False
+)
+
+
+class RequestPathParams(RequestRequiredPathParams, RequestOptionalPathParams):
+    pass
+
+
+request_path_application_id = api_client.PathParameter(
+    name="applicationId",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=ApplicationIdSchema,
+    required=True,
+)
 SchemaFor200ResponseBodyApplicationJson = ApplicationResponse
+
+
+@dataclass
+class ApiResponseFor200(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor200ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_200 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor200,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationJson),
+    },
+)
 _all_accept_content_types = (
     'application/json',
 )

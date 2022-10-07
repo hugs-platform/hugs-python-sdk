@@ -29,8 +29,40 @@ from openapi_client.model.contribution_type_request import ContributionTypeReque
 
 # path params
 ApplicationIdSchema = schemas.StrSchema
+RequestRequiredPathParams = typing_extensions.TypedDict(
+    'RequestRequiredPathParams',
+    {
+        'applicationId': typing.Union[ApplicationIdSchema, str, ],
+    }
+)
+RequestOptionalPathParams = typing_extensions.TypedDict(
+    'RequestOptionalPathParams',
+    {
+    },
+    total=False
+)
+
+
+class RequestPathParams(RequestRequiredPathParams, RequestOptionalPathParams):
+    pass
+
+
+request_path_application_id = api_client.PathParameter(
+    name="applicationId",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=ApplicationIdSchema,
+    required=True,
+)
 # body param
 SchemaForRequestBodyApplicationJson = ContributionTypeRequest
+
+
+request_body_contribution_type_request = api_client.RequestBody(
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaForRequestBodyApplicationJson),
+    },
+)
 
 
 class SchemaFor201ResponseBodyApplicationJson(
@@ -82,6 +114,24 @@ class SchemaFor201ResponseBodyApplicationJson(
             _configuration=_configuration,
             **kwargs,
         )
+
+
+@dataclass
+class ApiResponseFor201(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor201ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_201 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor201,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor201ResponseBodyApplicationJson),
+    },
+)
 _all_accept_content_types = (
     'application/json',
 )

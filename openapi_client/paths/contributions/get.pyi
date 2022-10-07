@@ -28,12 +28,71 @@ from openapi_client import schemas  # noqa: F401
 from openapi_client.model.contribution_response import ContributionResponse
 
 # query params
-ExternalResourceRefSchema = schemas.StrSchema
+ContributionGroupSchema = schemas.StrSchema
 ContributionTypeSchema = schemas.StrSchema
 UserIdSchema = schemas.StrSchema
 AppIdSchema = schemas.StrSchema
 StartSchema = schemas.IntSchema
 LengthSchema = schemas.IntSchema
+RequestRequiredQueryParams = typing_extensions.TypedDict(
+    'RequestRequiredQueryParams',
+    {
+    }
+)
+RequestOptionalQueryParams = typing_extensions.TypedDict(
+    'RequestOptionalQueryParams',
+    {
+        'contributionGroup': typing.Union[ContributionGroupSchema, str, ],
+        'contributionType': typing.Union[ContributionTypeSchema, str, ],
+        'userId': typing.Union[UserIdSchema, str, ],
+        'appId': typing.Union[AppIdSchema, str, ],
+        'start': typing.Union[StartSchema, decimal.Decimal, int, ],
+        'length': typing.Union[LengthSchema, decimal.Decimal, int, ],
+    },
+    total=False
+)
+
+
+class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams):
+    pass
+
+
+request_query_contribution_group = api_client.QueryParameter(
+    name="contributionGroup",
+    style=api_client.ParameterStyle.FORM,
+    schema=ContributionGroupSchema,
+    explode=True,
+)
+request_query_contribution_type = api_client.QueryParameter(
+    name="contributionType",
+    style=api_client.ParameterStyle.FORM,
+    schema=ContributionTypeSchema,
+    explode=True,
+)
+request_query_user_id = api_client.QueryParameter(
+    name="userId",
+    style=api_client.ParameterStyle.FORM,
+    schema=UserIdSchema,
+    explode=True,
+)
+request_query_app_id = api_client.QueryParameter(
+    name="appId",
+    style=api_client.ParameterStyle.FORM,
+    schema=AppIdSchema,
+    explode=True,
+)
+request_query_start = api_client.QueryParameter(
+    name="start",
+    style=api_client.ParameterStyle.FORM,
+    schema=StartSchema,
+    explode=True,
+)
+request_query_length = api_client.QueryParameter(
+    name="length",
+    style=api_client.ParameterStyle.FORM,
+    schema=LengthSchema,
+    explode=True,
+)
 
 
 class SchemaFor200ResponseBodyApplicationJson(
@@ -60,6 +119,24 @@ class SchemaFor200ResponseBodyApplicationJson(
 
     def __getitem__(self, i: int) -> 'ContributionResponse':
         return super().__getitem__(i)
+
+
+@dataclass
+class ApiResponseFor200(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor200ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_200 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor200,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationJson),
+    },
+)
 _all_accept_content_types = (
     'application/json',
 )
@@ -89,7 +166,7 @@ class BaseApi(api_client.Api):
 
         prefix_separator_iterator = None
         for parameter in (
-            request_query_external_resource_ref,
+            request_query_contribution_group,
             request_query_contribution_type,
             request_query_user_id,
             request_query_app_id,

@@ -140,7 +140,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import openapi_client
 from pprint import pprint
-from openapi_client.apis import applications_api
+from openapi_client.apis.tags import applications_api
 from openapi_client.model.application_request import ApplicationRequest
 from openapi_client.model.application_response import ApplicationResponse
 from openapi_client.model.contribution_type_request import ContributionTypeRequest

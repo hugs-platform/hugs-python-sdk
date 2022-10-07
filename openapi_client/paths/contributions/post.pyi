@@ -31,6 +31,14 @@ from openapi_client.model.contribution_request import ContributionRequest
 SchemaForRequestBodyApplicationJson = ContributionRequest
 
 
+request_body_contribution_request = api_client.RequestBody(
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaForRequestBodyApplicationJson),
+    },
+)
+
+
 class SchemaFor201ResponseBodyApplicationJson(
     schemas.AnyTypeSchema,
 ):
@@ -80,6 +88,24 @@ class SchemaFor201ResponseBodyApplicationJson(
             _configuration=_configuration,
             **kwargs,
         )
+
+
+@dataclass
+class ApiResponseFor201(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor201ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_201 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor201,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor201ResponseBodyApplicationJson),
+    },
+)
 _all_accept_content_types = (
     'application/json',
 )

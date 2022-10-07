@@ -115,7 +115,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     body = ContributionRequest(
         app_id="app_id_example",
         contribution_type="contribution_type_example",
-        external_resource_ref="external_resource_ref_example",
+        contribution_group="contribution_group_example",
         contribution_data=dict(),
     )
     try:
@@ -471,7 +471,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'externalResourceRef': "externalResourceRef_example",
+        'contributionGroup': "contributionGroup_example",
         'contributionType': "contributionType_example",
         'userId': "userId_example",
         'appId': "appId_example",
@@ -502,7 +502,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-externalResourceRef | ExternalResourceRefSchema | | optional
+contributionGroup | ContributionGroupSchema | | optional
 contributionType | ContributionTypeSchema | | optional
 userId | UserIdSchema | | optional
 appId | AppIdSchema | | optional
@@ -510,7 +510,7 @@ start | StartSchema | | optional
 length | LengthSchema | | optional
 
 
-# ExternalResourceRefSchema
+# ContributionGroupSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

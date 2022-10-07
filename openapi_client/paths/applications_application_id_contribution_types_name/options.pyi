@@ -27,9 +27,66 @@ from openapi_client import schemas  # noqa: F401
 # path params
 ApplicationIdSchema = schemas.StrSchema
 NameSchema = schemas.StrSchema
+RequestRequiredPathParams = typing_extensions.TypedDict(
+    'RequestRequiredPathParams',
+    {
+        'applicationId': typing.Union[ApplicationIdSchema, str, ],
+        'name': typing.Union[NameSchema, str, ],
+    }
+)
+RequestOptionalPathParams = typing_extensions.TypedDict(
+    'RequestOptionalPathParams',
+    {
+    },
+    total=False
+)
+
+
+class RequestPathParams(RequestRequiredPathParams, RequestOptionalPathParams):
+    pass
+
+
+request_path_application_id = api_client.PathParameter(
+    name="applicationId",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=ApplicationIdSchema,
+    required=True,
+)
+request_path_name = api_client.PathParameter(
+    name="name",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=NameSchema,
+    required=True,
+)
 AccessControlAllowOriginSchema = schemas.StrSchema
 AccessControlAllowMethodsSchema = schemas.StrSchema
 AccessControlAllowHeadersSchema = schemas.StrSchema
+ResponseHeadersFor200 = typing_extensions.TypedDict(
+    'ResponseHeadersFor200',
+    {
+        'Access-Control-Allow-Origin': AccessControlAllowOriginSchema,
+        'Access-Control-Allow-Methods': AccessControlAllowMethodsSchema,
+        'Access-Control-Allow-Headers': AccessControlAllowHeadersSchema,
+    }
+)
+
+
+@dataclass
+class ApiResponseFor200(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+    ]
+    headers: ResponseHeadersFor200
+
+
+_response_for_200 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor200,
+    headers=[
+        access_control_allow_origin_parameter,
+        access_control_allow_methods_parameter,
+        access_control_allow_headers_parameter,
+    ]
+)
 
 
 class BaseApi(api_client.Api):

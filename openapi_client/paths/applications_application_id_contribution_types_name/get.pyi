@@ -30,7 +30,56 @@ from openapi_client.model.contribution_type_response import ContributionTypeResp
 # path params
 ApplicationIdSchema = schemas.StrSchema
 NameSchema = schemas.StrSchema
+RequestRequiredPathParams = typing_extensions.TypedDict(
+    'RequestRequiredPathParams',
+    {
+        'applicationId': typing.Union[ApplicationIdSchema, str, ],
+        'name': typing.Union[NameSchema, str, ],
+    }
+)
+RequestOptionalPathParams = typing_extensions.TypedDict(
+    'RequestOptionalPathParams',
+    {
+    },
+    total=False
+)
+
+
+class RequestPathParams(RequestRequiredPathParams, RequestOptionalPathParams):
+    pass
+
+
+request_path_application_id = api_client.PathParameter(
+    name="applicationId",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=ApplicationIdSchema,
+    required=True,
+)
+request_path_name = api_client.PathParameter(
+    name="name",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=NameSchema,
+    required=True,
+)
 SchemaFor200ResponseBodyApplicationJson = ContributionTypeResponse
+
+
+@dataclass
+class ApiResponseFor200(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor200ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_200 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor200,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationJson),
+    },
+)
 _all_accept_content_types = (
     'application/json',
 )

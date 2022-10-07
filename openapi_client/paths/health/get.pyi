@@ -26,6 +26,18 @@ from openapi_client import schemas  # noqa: F401
 
 
 
+@dataclass
+class ApiResponseFor200(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: schemas.Unset = schemas.unset
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_200 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor200,
+)
+
+
 class BaseApi(api_client.Api):
 
     def _contributions_health_oapg(

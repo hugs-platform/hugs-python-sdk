@@ -32,6 +32,51 @@ StartSchema = schemas.IntSchema
 LengthSchema = schemas.IntSchema
 OwnerIdSchema = schemas.StrSchema
 ClientIdSchema = schemas.StrSchema
+RequestRequiredQueryParams = typing_extensions.TypedDict(
+    'RequestRequiredQueryParams',
+    {
+    }
+)
+RequestOptionalQueryParams = typing_extensions.TypedDict(
+    'RequestOptionalQueryParams',
+    {
+        'start': typing.Union[StartSchema, decimal.Decimal, int, ],
+        'length': typing.Union[LengthSchema, decimal.Decimal, int, ],
+        'ownerId': typing.Union[OwnerIdSchema, str, ],
+        'clientId': typing.Union[ClientIdSchema, str, ],
+    },
+    total=False
+)
+
+
+class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams):
+    pass
+
+
+request_query_start = api_client.QueryParameter(
+    name="start",
+    style=api_client.ParameterStyle.FORM,
+    schema=StartSchema,
+    explode=True,
+)
+request_query_length = api_client.QueryParameter(
+    name="length",
+    style=api_client.ParameterStyle.FORM,
+    schema=LengthSchema,
+    explode=True,
+)
+request_query_owner_id = api_client.QueryParameter(
+    name="ownerId",
+    style=api_client.ParameterStyle.FORM,
+    schema=OwnerIdSchema,
+    explode=True,
+)
+request_query_client_id = api_client.QueryParameter(
+    name="clientId",
+    style=api_client.ParameterStyle.FORM,
+    schema=ClientIdSchema,
+    explode=True,
+)
 
 
 class SchemaFor200ResponseBodyApplicationJson(
@@ -58,6 +103,24 @@ class SchemaFor200ResponseBodyApplicationJson(
 
     def __getitem__(self, i: int) -> 'ApplicationResponse':
         return super().__getitem__(i)
+
+
+@dataclass
+class ApiResponseFor200(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor200ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_200 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor200,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationJson),
+    },
+)
 _all_accept_content_types = (
     'application/json',
 )

@@ -27,6 +27,32 @@ from openapi_client import schemas  # noqa: F401
 AccessControlAllowOriginSchema = schemas.StrSchema
 AccessControlAllowMethodsSchema = schemas.StrSchema
 AccessControlAllowHeadersSchema = schemas.StrSchema
+ResponseHeadersFor200 = typing_extensions.TypedDict(
+    'ResponseHeadersFor200',
+    {
+        'Access-Control-Allow-Origin': AccessControlAllowOriginSchema,
+        'Access-Control-Allow-Methods': AccessControlAllowMethodsSchema,
+        'Access-Control-Allow-Headers': AccessControlAllowHeadersSchema,
+    }
+)
+
+
+@dataclass
+class ApiResponseFor200(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+    ]
+    headers: ResponseHeadersFor200
+
+
+_response_for_200 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor200,
+    headers=[
+        access_control_allow_origin_parameter,
+        access_control_allow_methods_parameter,
+        access_control_allow_headers_parameter,
+    ]
+)
 
 
 class BaseApi(api_client.Api):
