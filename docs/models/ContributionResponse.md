@@ -9,13 +9,11 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **contributionType** | str,  | str,  |  | 
-**createdAt** | str,  | str,  |  | 
 **appId** | str,  | str,  |  | 
 **[contributionData](#contributionData)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-**id** | str,  | str,  |  | 
 **state** | [**ContributionState**](ContributionState.md) | [**ContributionState**](ContributionState.md) |  | 
 **userId** | str,  | str,  |  | 
-**contributionGroup** | str,  | str,  |  | [optional] 
+**externalResourceRef** | str,  | str,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # contributionData
