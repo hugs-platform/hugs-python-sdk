@@ -36,13 +36,16 @@ class ContributionResponse(
     class MetaOapg:
         required = {
             "contributionType",
+            "createdAt",
             "appId",
             "contributionData",
+            "id",
             "state",
             "userId",
         }
         
         class properties:
+            id = schemas.StrSchema
             userId = schemas.StrSchema
             appId = schemas.StrSchema
             contributionType = schemas.StrSchema
@@ -51,21 +54,29 @@ class ContributionResponse(
             @staticmethod
             def state() -> typing.Type['ContributionState']:
                 return ContributionState
-            externalResourceRef = schemas.StrSchema
+            createdAt = schemas.StrSchema
+            contributionGroup = schemas.StrSchema
             __annotations__ = {
+                "id": id,
                 "userId": userId,
                 "appId": appId,
                 "contributionType": contributionType,
                 "contributionData": contributionData,
                 "state": state,
-                "externalResourceRef": externalResourceRef,
+                "createdAt": createdAt,
+                "contributionGroup": contributionGroup,
             }
     
     contributionType: MetaOapg.properties.contributionType
+    createdAt: MetaOapg.properties.createdAt
     appId: MetaOapg.properties.appId
     contributionData: MetaOapg.properties.contributionData
+    id: MetaOapg.properties.id
     state: 'ContributionState'
     userId: MetaOapg.properties.userId
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["userId"]) -> MetaOapg.properties.userId: ...
@@ -83,15 +94,21 @@ class ContributionResponse(
     def __getitem__(self, name: typing_extensions.Literal["state"]) -> 'ContributionState': ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["externalResourceRef"]) -> MetaOapg.properties.externalResourceRef: ...
+    def __getitem__(self, name: typing_extensions.Literal["createdAt"]) -> MetaOapg.properties.createdAt: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["contributionGroup"]) -> MetaOapg.properties.contributionGroup: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["userId", "appId", "contributionType", "contributionData", "state", "externalResourceRef", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "userId", "appId", "contributionType", "contributionData", "state", "createdAt", "contributionGroup", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["userId"]) -> MetaOapg.properties.userId: ...
@@ -109,12 +126,15 @@ class ContributionResponse(
     def get_item_oapg(self, name: typing_extensions.Literal["state"]) -> 'ContributionState': ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["externalResourceRef"]) -> typing.Union[MetaOapg.properties.externalResourceRef, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["createdAt"]) -> MetaOapg.properties.createdAt: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["contributionGroup"]) -> typing.Union[MetaOapg.properties.contributionGroup, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["userId", "appId", "contributionType", "contributionData", "state", "externalResourceRef", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "userId", "appId", "contributionType", "contributionData", "state", "createdAt", "contributionGroup", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -122,11 +142,13 @@ class ContributionResponse(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
         contributionType: typing.Union[MetaOapg.properties.contributionType, str, ],
+        createdAt: typing.Union[MetaOapg.properties.createdAt, str, ],
         appId: typing.Union[MetaOapg.properties.appId, str, ],
         contributionData: typing.Union[MetaOapg.properties.contributionData, dict, frozendict.frozendict, ],
+        id: typing.Union[MetaOapg.properties.id, str, ],
         state: 'ContributionState',
         userId: typing.Union[MetaOapg.properties.userId, str, ],
-        externalResourceRef: typing.Union[MetaOapg.properties.externalResourceRef, str, schemas.Unset] = schemas.unset,
+        contributionGroup: typing.Union[MetaOapg.properties.contributionGroup, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ContributionResponse':
@@ -134,11 +156,13 @@ class ContributionResponse(
             cls,
             *args,
             contributionType=contributionType,
+            createdAt=createdAt,
             appId=appId,
             contributionData=contributionData,
+            id=id,
             state=state,
             userId=userId,
-            externalResourceRef=externalResourceRef,
+            contributionGroup=contributionGroup,
             _configuration=_configuration,
             **kwargs,
         )

@@ -28,7 +28,7 @@ from openapi_client import schemas  # noqa: F401
 from openapi_client.model.contribution_response import ContributionResponse
 
 # Query params
-ExternalResourceRefSchema = schemas.StrSchema
+ContributionGroupSchema = schemas.StrSchema
 ContributionTypeSchema = schemas.StrSchema
 UserIdSchema = schemas.StrSchema
 AppIdSchema = schemas.StrSchema
@@ -42,7 +42,7 @@ RequestRequiredQueryParams = typing_extensions.TypedDict(
 RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
-        'externalResourceRef': typing.Union[ExternalResourceRefSchema, str, ],
+        'contributionGroup': typing.Union[ContributionGroupSchema, str, ],
         'contributionType': typing.Union[ContributionTypeSchema, str, ],
         'userId': typing.Union[UserIdSchema, str, ],
         'appId': typing.Union[AppIdSchema, str, ],
@@ -57,10 +57,10 @@ class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams)
     pass
 
 
-request_query_external_resource_ref = api_client.QueryParameter(
-    name="externalResourceRef",
+request_query_contribution_group = api_client.QueryParameter(
+    name="contributionGroup",
     style=api_client.ParameterStyle.FORM,
-    schema=ExternalResourceRefSchema,
+    schema=ContributionGroupSchema,
     explode=True,
 )
 request_query_contribution_type = api_client.QueryParameter(
@@ -196,7 +196,7 @@ class BaseApi(api_client.Api):
 
         prefix_separator_iterator = None
         for parameter in (
-            request_query_external_resource_ref,
+            request_query_contribution_group,
             request_query_contribution_type,
             request_query_user_id,
             request_query_app_id,
