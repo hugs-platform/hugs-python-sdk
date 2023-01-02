@@ -25,7 +25,6 @@ import frozendict  # noqa: F401
 
 from openapi_client import schemas  # noqa: F401
 
-from openapi_client.model.model_int import ModelInt
 from openapi_client.model.coin_response import CoinResponse
 
 from . import path
@@ -40,14 +39,8 @@ class SchemaFor200ResponseBodyApplicationJson(
     class MetaOapg:
         
         class properties:
-        
-            @staticmethod
-            def page() -> typing.Type['ModelInt']:
-                return ModelInt
-        
-            @staticmethod
-            def number_of_pages() -> typing.Type['ModelInt']:
-                return ModelInt
+            page = schemas.IntSchema
+            number_of_pages = schemas.IntSchema
             
             
             class items(
@@ -82,10 +75,10 @@ class SchemaFor200ResponseBodyApplicationJson(
 
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["page"]) -> 'ModelInt': ...
+    def __getitem__(self, name: typing_extensions.Literal["page"]) -> MetaOapg.properties.page: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number_of_pages"]) -> 'ModelInt': ...
+    def __getitem__(self, name: typing_extensions.Literal["number_of_pages"]) -> MetaOapg.properties.number_of_pages: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["items"]) -> MetaOapg.properties.items: ...
@@ -99,10 +92,10 @@ class SchemaFor200ResponseBodyApplicationJson(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["page"]) -> typing.Union['ModelInt', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["page"]) -> typing.Union[MetaOapg.properties.page, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["number_of_pages"]) -> typing.Union['ModelInt', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["number_of_pages"]) -> typing.Union[MetaOapg.properties.number_of_pages, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["items"]) -> typing.Union[MetaOapg.properties.items, schemas.Unset]: ...
@@ -117,8 +110,8 @@ class SchemaFor200ResponseBodyApplicationJson(
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, ],
-        page: typing.Union['ModelInt', schemas.Unset] = schemas.unset,
-        number_of_pages: typing.Union['ModelInt', schemas.Unset] = schemas.unset,
+        page: typing.Union[MetaOapg.properties.page, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        number_of_pages: typing.Union[MetaOapg.properties.number_of_pages, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         items: typing.Union[MetaOapg.properties.items, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],

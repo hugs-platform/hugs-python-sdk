@@ -146,7 +146,6 @@ from openapi_client.model.application_response import ApplicationResponse
 from openapi_client.model.coin_response import CoinResponse
 from openapi_client.model.contribution_type_request import ContributionTypeRequest
 from openapi_client.model.contribution_type_response import ContributionTypeResponse
-from openapi_client.model.model_int import ModelInt
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
