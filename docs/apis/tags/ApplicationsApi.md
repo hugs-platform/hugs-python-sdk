@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**create_contribution_type**](#create_contribution_type) | **post** /applications/{applicationId}/contributionTypes | Create a new contribution type
 [**get_application_by_id**](#get_application_by_id) | **get** /applications/{applicationId} | Get application by Id
 [**get_applications**](#get_applications) | **get** /applications | Get applications
+[**get_coins_list**](#get_coins_list) | **get** /applications/coins/list | Get coins list
 [**get_contribution_type_by_name**](#get_contribution_type_by_name) | **get** /applications/{applicationId}/contributionTypes/{name} | Get contribution type by name
 [**get_contribution_types**](#get_contribution_types) | **get** /applications/{applicationId}/contributionTypes | Get contributionTypes
 [**update_contribution_type_by_name**](#update_contribution_type_by_name) | **put** /applications/{applicationId}/contributionTypes/{name} | Update contribution type by name
@@ -21,7 +22,6 @@ Create a new application
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import applications_api
@@ -33,16 +33,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -111,7 +101,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -123,7 +113,6 @@ Create a new contribution type
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import applications_api
@@ -135,16 +124,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -247,7 +226,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -259,7 +238,6 @@ Get application by Id
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import applications_api
@@ -271,16 +249,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -345,7 +313,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -357,7 +325,6 @@ Get applications
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import applications_api
@@ -369,16 +336,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -481,7 +438,90 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_coins_list**
+<a name="get_coins_list"></a>
+> bool, date, datetime, dict, float, int, list, str, none_type get_coins_list()
+
+Get coins list
+
+### Example
+
+```python
+import openapi_client
+from openapi_client.apis.tags import applications_api
+from openapi_client.model.model_int import ModelInt
+from openapi_client.model.coin_response import CoinResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://localhost"
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = applications_api.ApplicationsApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get coins list
+        api_response = api_instance.get_coins_list()
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ApplicationsApi->get_coins_list: %s\n" % e)
+```
+### Parameters
+This endpoint does not need any parameter.
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_coins_list.ApiResponseFor200) | CoinList
+
+#### get_coins_list.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader,  | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, FileIO |  | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**page** | [**ModelInt**]({{complexTypePrefix}}ModelInt.md) | [**ModelInt**]({{complexTypePrefix}}ModelInt.md) |  | [optional] 
+**number_of_pages** | [**ModelInt**]({{complexTypePrefix}}ModelInt.md) | [**ModelInt**]({{complexTypePrefix}}ModelInt.md) |  | [optional] 
+**[items](#items)** | list, tuple,  | tuple,  |  | [optional] 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# items
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**CoinResponse**]({{complexTypePrefix}}CoinResponse.md) | [**CoinResponse**]({{complexTypePrefix}}CoinResponse.md) | [**CoinResponse**]({{complexTypePrefix}}CoinResponse.md) |  | 
+
+### Authorization
+
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -493,7 +533,6 @@ Get contribution type by name
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import applications_api
@@ -505,16 +544,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -588,7 +617,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -600,7 +629,6 @@ Get contributionTypes
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import applications_api
@@ -612,16 +640,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -692,7 +710,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -704,7 +722,6 @@ Update contribution type by name
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import applications_api
@@ -716,16 +733,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -822,7 +829,7 @@ headers | Unset | headers were not defined |
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 

@@ -6,13 +6,16 @@
 # if you have many models here with many references from one model to another this may
 # raise a RecursionError
 # to avoid this, import only the models that you directly need like:
-# from from openapi_client.model.pet import Pet
+# from openapi_client.model.pet import Pet
 # or import this package, but before doing it, use:
 # import sys
 # sys.setrecursionlimit(n)
 
 from openapi_client.model.application_request import ApplicationRequest
 from openapi_client.model.application_response import ApplicationResponse
+from openapi_client.model.auth_token_request import AuthTokenRequest
+from openapi_client.model.auth_token_response import AuthTokenResponse
+from openapi_client.model.coin_response import CoinResponse
 from openapi_client.model.contribution_request import ContributionRequest
 from openapi_client.model.contribution_response import ContributionResponse
 from openapi_client.model.contribution_state import ContributionState

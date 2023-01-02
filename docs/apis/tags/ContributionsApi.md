@@ -5,12 +5,97 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**auth_token_request**](#auth_token_request) | **post** /contributions/authentication | request users&#x27;s auth token
 [**contributions_health**](#contributions_health) | **get** /health | Checking the health of the contributions service
 [**create_contribution**](#create_contribution) | **post** /contributions | Create a new contribution
 [**create_resolution**](#create_resolution) | **post** /contributions/{contributionId}/resolutions | Resolve a contribution
 [**find_by_reviewer_id**](#find_by_reviewer_id) | **get** /contributions/findByReviewerId | Get Contributions by ReviewerId
 [**get_contributions**](#get_contributions) | **get** /contributions | Get contributions
 [**get_contributions_by_id**](#get_contributions_by_id) | **get** /contributions/{contributionId} | Get contribution by Id
+
+# **auth_token_request**
+<a name="auth_token_request"></a>
+> AuthTokenResponse auth_token_request()
+
+request users's auth token
+
+### Example
+
+```python
+import openapi_client
+from openapi_client.apis.tags import contributions_api
+from openapi_client.model.auth_token_request import AuthTokenRequest
+from openapi_client.model.auth_token_response import AuthTokenResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://localhost"
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = contributions_api.ContributionsApi(api_client)
+
+    # example passing only optional values
+    body = AuthTokenRequest(
+        app_id="app_id_example",
+        wallet="wallet_example",
+    )
+    try:
+        # request users's auth token
+        api_response = api_instance.auth_token_request(
+            body=body,
+        )
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling ContributionsApi->auth_token_request: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**AuthTokenRequest**](../../models/AuthTokenRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#auth_token_request.ApiResponseFor200) | AuthTokenCreated
+
+#### auth_token_request.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**AuthTokenResponse**](../../models/AuthTokenResponse.md) |  | 
+
+
+### Authorization
+
+No authorization required
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **contributions_health**
 <a name="contributions_health"></a>
@@ -20,7 +105,6 @@ Checking the health of the contributions service
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import contributions_api
@@ -31,16 +115,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -72,7 +146,7 @@ headers | Unset | headers were not defined |
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -84,7 +158,6 @@ Create a new contribution
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import contributions_api
@@ -96,16 +169,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -175,7 +238,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -187,7 +250,6 @@ Resolve a contribution
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import contributions_api
@@ -199,16 +261,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -307,7 +359,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -319,7 +371,6 @@ Get Contributions by ReviewerId
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import contributions_api
@@ -331,16 +382,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -430,7 +471,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -442,7 +483,6 @@ Get contributions
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import contributions_api
@@ -454,16 +494,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -580,7 +610,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
@@ -592,7 +622,6 @@ Get contribution by Id
 
 ### Example
 
-* Api Key Authentication (JWTAuth):
 ```python
 import openapi_client
 from openapi_client.apis.tags import contributions_api
@@ -604,16 +633,6 @@ configuration = openapi_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: JWTAuth
-configuration.api_key['JWTAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['JWTAuth'] = 'Bearer'
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -678,7 +697,7 @@ Type | Description  | Notes
 
 ### Authorization
 
-[JWTAuth](../../../README.md#JWTAuth)
+No authorization required
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
