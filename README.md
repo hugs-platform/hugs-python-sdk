@@ -195,6 +195,7 @@ Class | Method | HTTP request | Description
 *CorsApi* | [**applications_application_id_contribution_types_name_options**](docs/apis/tags/CorsApi.md#applications_application_id_contribution_types_name_options) | **options** /applications/{applicationId}/contributionTypes/{name} | cors support
 *CorsApi* | [**applications_application_id_contribution_types_options**](docs/apis/tags/CorsApi.md#applications_application_id_contribution_types_options) | **options** /applications/{applicationId}/contributionTypes | cors support
 *CorsApi* | [**applications_application_id_options**](docs/apis/tags/CorsApi.md#applications_application_id_options) | **options** /applications/{applicationId} | cors support
+*CorsApi* | [**applications_coins_list_options**](docs/apis/tags/CorsApi.md#applications_coins_list_options) | **options** /applications/coins/list | cors support
 *CorsApi* | [**applications_options**](docs/apis/tags/CorsApi.md#applications_options) | **options** /applications | cors support
 *CorsApi* | [**contributions_contribution_id_options**](docs/apis/tags/CorsApi.md#contributions_contribution_id_options) | **options** /contributions/{contributionId} | cors support
 *CorsApi* | [**contributions_contribution_id_resolutions_options**](docs/apis/tags/CorsApi.md#contributions_contribution_id_resolutions_options) | **options** /contributions/{contributionId}/resolutions | cors support

@@ -12,6 +12,7 @@
 from openapi_client.paths.applications_application_id_contribution_types_name.options import ApplicationsApplicationIdContributionTypesNameOptions
 from openapi_client.paths.applications_application_id_contribution_types.options import ApplicationsApplicationIdContributionTypesOptions
 from openapi_client.paths.applications_application_id.options import ApplicationsApplicationIdOptions
+from openapi_client.paths.applications_coins_list.options import ApplicationsCoinsListOptions
 from openapi_client.paths.applications.options import ApplicationsOptions
 from openapi_client.paths.contributions_contribution_id.options import ContributionsContributionIdOptions
 from openapi_client.paths.contributions_contribution_id_resolutions.options import ContributionsContributionIdResolutionsOptions
@@ -24,6 +25,7 @@ class CorsApi(
     ApplicationsApplicationIdContributionTypesNameOptions,
     ApplicationsApplicationIdContributionTypesOptions,
     ApplicationsApplicationIdOptions,
+    ApplicationsCoinsListOptions,
     ApplicationsOptions,
     ContributionsContributionIdOptions,
     ContributionsContributionIdResolutionsOptions,

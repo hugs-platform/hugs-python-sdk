@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**applications_application_id_contribution_types_name_options**](#applications_application_id_contribution_types_name_options) | **options** /applications/{applicationId}/contributionTypes/{name} | cors support
 [**applications_application_id_contribution_types_options**](#applications_application_id_contribution_types_options) | **options** /applications/{applicationId}/contributionTypes | cors support
 [**applications_application_id_options**](#applications_application_id_options) | **options** /applications/{applicationId} | cors support
+[**applications_coins_list_options**](#applications_coins_list_options) | **options** /applications/coins/list | cors support
 [**applications_options**](#applications_options) | **options** /applications | cors support
 [**contributions_contribution_id_options**](#contributions_contribution_id_options) | **options** /contributions/{contributionId} | cors support
 [**contributions_contribution_id_resolutions_options**](#contributions_contribution_id_resolutions_options) | **options** /contributions/{contributionId}/resolutions | cors support
@@ -310,6 +311,115 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#applications_application_id_options.ApiResponseFor200) | Default response for CORS method
 
 #### applications_application_id_options.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[] |  |
+headers | ResponseHeadersFor200 |  |
+#### ResponseHeadersFor200
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+Access-Control-Allow-Origin | AccessControlAllowOriginSchema | | optional
+Access-Control-Allow-Methods | AccessControlAllowMethodsSchema | | optional
+Access-Control-Allow-Headers | AccessControlAllowHeadersSchema | | optional
+
+# AccessControlAllowOriginSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowMethodsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# AccessControlAllowHeadersSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+
+### Authorization
+
+No authorization required
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **applications_coins_list_options**
+<a name="applications_coins_list_options"></a>
+> applications_coins_list_options(get_coins_list)
+
+cors support
+
+Enable cors by returning correct headers 
+
+### Example
+
+```python
+import openapi_client
+from openapi_client.apis.tags import cors_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "http://localhost"
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cors_api.CorsApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'getCoinsList': "getCoinsList_example",
+    }
+    try:
+        # cors support
+        api_response = api_instance.applications_coins_list_options(
+            path_params=path_params,
+        )
+    except openapi_client.ApiException as e:
+        print("Exception when calling CorsApi->applications_coins_list_options: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+getCoinsList | GetCoinsListSchema | | 
+
+# GetCoinsListSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#applications_coins_list_options.ApiResponseFor200) | Default response for CORS method
+
+#### applications_coins_list_options.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
