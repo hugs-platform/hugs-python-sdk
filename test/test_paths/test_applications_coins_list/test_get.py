@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestApplicationsCoinsList(ApiTestMixin, unittest.TestCase):
     """
     ApplicationsCoinsList unit test stubs
-        Get coins list  # noqa: E501
+        Get Coins list  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

@@ -181,7 +181,7 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**create_contribution_type**](docs/apis/tags/ApplicationsApi.md#create_contribution_type) | **post** /applications/{applicationId}/contributionTypes | Create a new contribution type
 *ApplicationsApi* | [**get_application_by_id**](docs/apis/tags/ApplicationsApi.md#get_application_by_id) | **get** /applications/{applicationId} | Get application by Id
 *ApplicationsApi* | [**get_applications**](docs/apis/tags/ApplicationsApi.md#get_applications) | **get** /applications | Get applications
-*ApplicationsApi* | [**get_coins_list**](docs/apis/tags/ApplicationsApi.md#get_coins_list) | **get** /applications/coins/list | Get coins list
+*ApplicationsApi* | [**get_coins_list**](docs/apis/tags/ApplicationsApi.md#get_coins_list) | **get** /applications/coins/list | Get Coins list
 *ApplicationsApi* | [**get_contribution_type_by_name**](docs/apis/tags/ApplicationsApi.md#get_contribution_type_by_name) | **get** /applications/{applicationId}/contributionTypes/{name} | Get contribution type by name
 *ApplicationsApi* | [**get_contribution_types**](docs/apis/tags/ApplicationsApi.md#get_contribution_types) | **get** /applications/{applicationId}/contributionTypes | Get contributionTypes
 *ApplicationsApi* | [**update_contribution_type_by_name**](docs/apis/tags/ApplicationsApi.md#update_contribution_type_by_name) | **put** /applications/{applicationId}/contributionTypes/{name} | Update contribution type by name

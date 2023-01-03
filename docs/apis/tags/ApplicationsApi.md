@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**create_contribution_type**](#create_contribution_type) | **post** /applications/{applicationId}/contributionTypes | Create a new contribution type
 [**get_application_by_id**](#get_application_by_id) | **get** /applications/{applicationId} | Get application by Id
 [**get_applications**](#get_applications) | **get** /applications | Get applications
-[**get_coins_list**](#get_coins_list) | **get** /applications/coins/list | Get coins list
+[**get_coins_list**](#get_coins_list) | **get** /applications/coins/list | Get Coins list
 [**get_contribution_type_by_name**](#get_contribution_type_by_name) | **get** /applications/{applicationId}/contributionTypes/{name} | Get contribution type by name
 [**get_contribution_types**](#get_contribution_types) | **get** /applications/{applicationId}/contributionTypes | Get contributionTypes
 [**update_contribution_type_by_name**](#update_contribution_type_by_name) | **put** /applications/{applicationId}/contributionTypes/{name} | Update contribution type by name
@@ -446,7 +446,7 @@ No authorization required
 <a name="get_coins_list"></a>
 > bool, date, datetime, dict, float, int, list, str, none_type get_coins_list()
 
-Get coins list
+Get Coins list
 
 ### Example
 
@@ -466,23 +466,59 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = applications_api.ApplicationsApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only optional values
+    query_params = {
+        'page': 1,
+        'number_of_pages': 1,
+    }
     try:
-        # Get coins list
-        api_response = api_instance.get_coins_list()
+        # Get Coins list
+        api_response = api_instance.get_coins_list(
+            query_params=query_params,
+        )
         pprint(api_response)
     except openapi_client.ApiException as e:
         print("Exception when calling ApplicationsApi->get_coins_list: %s\n" % e)
 ```
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+page | PageSchema | | optional
+number_of_pages | NumberOfPagesSchema | | optional
+
+
+# PageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | 
+
+# NumberOfPagesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#get_coins_list.ApiResponseFor200) | CoinList
+200 | [ApiResponseFor200](#get_coins_list.ApiResponseFor200) | Success
 
 #### get_coins_list.ApiResponseFor200
 Name | Type | Description  | Notes
