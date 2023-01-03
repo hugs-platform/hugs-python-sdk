@@ -26,32 +26,6 @@ from openapi_client import schemas  # noqa: F401
 
 from . import path
 
-# Path params
-GetCoinsListSchema = schemas.StrSchema
-RequestRequiredPathParams = typing_extensions.TypedDict(
-    'RequestRequiredPathParams',
-    {
-        'getCoinsList': typing.Union[GetCoinsListSchema, str, ],
-    }
-)
-RequestOptionalPathParams = typing_extensions.TypedDict(
-    'RequestOptionalPathParams',
-    {
-    },
-    total=False
-)
-
-
-class RequestPathParams(RequestRequiredPathParams, RequestOptionalPathParams):
-    pass
-
-
-request_path_get_coins_list = api_client.PathParameter(
-    name="getCoinsList",
-    style=api_client.ParameterStyle.SIMPLE,
-    schema=GetCoinsListSchema,
-    required=True,
-)
 AccessControlAllowOriginSchema = schemas.StrSchema
 access_control_allow_origin_parameter = api_client.HeaderParameter(
     name="Access-Control-Allow-Origin",
@@ -105,7 +79,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _applications_coins_list_options_oapg(
         self,
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -117,7 +90,6 @@ class BaseApi(api_client.Api):
     def _applications_coins_list_options_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -125,7 +97,6 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _applications_coins_list_options_oapg(
         self,
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -136,7 +107,6 @@ class BaseApi(api_client.Api):
 
     def _applications_coins_list_options_oapg(
         self,
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -147,21 +117,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs_oapg(RequestPathParams, path_params)
         used_path = path.value
-
-        _path_params = {}
-        for parameter in (
-            request_path_get_coins_list,
-        ):
-            parameter_data = path_params.get(parameter.name, schemas.unset)
-            if parameter_data is schemas.unset:
-                continue
-            serialized_data = parameter.serialize(parameter_data)
-            _path_params.update(serialized_data)
-
-        for k, v in _path_params.items():
-            used_path = used_path.replace('{%s}' % k, v)
         # TODO add cookie handling
 
         response = self.api_client.call_api(
@@ -196,7 +152,6 @@ class ApplicationsCoinsListOptions(BaseApi):
     @typing.overload
     def applications_coins_list_options(
         self,
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -208,7 +163,6 @@ class ApplicationsCoinsListOptions(BaseApi):
     def applications_coins_list_options(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -216,7 +170,6 @@ class ApplicationsCoinsListOptions(BaseApi):
     @typing.overload
     def applications_coins_list_options(
         self,
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -227,13 +180,11 @@ class ApplicationsCoinsListOptions(BaseApi):
 
     def applications_coins_list_options(
         self,
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._applications_coins_list_options_oapg(
-            path_params=path_params,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -246,7 +197,6 @@ class ApiForoptions(BaseApi):
     @typing.overload
     def options(
         self,
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -258,7 +208,6 @@ class ApiForoptions(BaseApi):
     def options(
         self,
         skip_deserialization: typing_extensions.Literal[True],
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -266,7 +215,6 @@ class ApiForoptions(BaseApi):
     @typing.overload
     def options(
         self,
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -277,13 +225,11 @@ class ApiForoptions(BaseApi):
 
     def options(
         self,
-        path_params: RequestPathParams = frozendict.frozendict(),
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._applications_coins_list_options_oapg(
-            path_params=path_params,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

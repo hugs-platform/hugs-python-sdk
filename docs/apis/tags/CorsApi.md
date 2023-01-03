@@ -354,7 +354,7 @@ No authorization required
 
 # **applications_coins_list_options**
 <a name="applications_coins_list_options"></a>
-> applications_coins_list_options(get_coins_list)
+> applications_coins_list_options()
 
 cors support
 
@@ -377,40 +377,15 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cors_api.CorsApi(api_client)
 
-    # example passing only required values which don't have defaults set
-    path_params = {
-        'getCoinsList': "getCoinsList_example",
-    }
+    # example, this endpoint has no required or optional parameters
     try:
         # cors support
-        api_response = api_instance.applications_coins_list_options(
-            path_params=path_params,
-        )
+        api_response = api_instance.applications_coins_list_options()
     except openapi_client.ApiException as e:
         print("Exception when calling CorsApi->applications_coins_list_options: %s\n" % e)
 ```
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-path_params | RequestPathParams | |
-stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
-timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
-skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
-
-### path_params
-#### RequestPathParams
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-getCoinsList | GetCoinsListSchema | | 
-
-# GetCoinsListSchema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | 
+This endpoint does not need any parameter.
 
 ### Return Types, Responses
 
